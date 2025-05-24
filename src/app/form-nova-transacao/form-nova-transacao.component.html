@@ -1,0 +1,28 @@
+<main class="form-wrapper">
+    <!-- ngNativeValidate permite manter as validações nativas do html, se não usar fica como padrão as validações do Angular-->
+    <form (ngSubmit)="aoSubmeter()" class="form" ngNativeValidate>
+        <h2 class="titulo">Nova Transação</h2>
+        <div class="campos">
+            <label class="campo-grupo">
+                Transação
+                <div class="select-wrapper">
+                    <select [(ngModel)]="tipoTransacao" name="tipo-transacao" class="campo select-tipo-transacao" required>
+                        <option value="" selected disabled>Selecione o Tipo de Transação</option>
+                        <option value="deposito">Depósito</option>
+                        <option value="saque">Saque</option>
+                    </select>
+                </div>
+            </label>
+            <label class="campo-grupo">
+                Valor
+                <div class="input-wrapper">
+                    <!-- [] attribute binding-->
+                     <!-- [(ngModel)] diretivas ngModel - two way data binding -->
+                      <!-- [()] banana caixa -->
+                    <input type="number" [(ngModel)]="valorTransacao" name="valorTransacao" min="0.01" step="0.01" class="campo input-valor-transacao" placeholder="0,00" required />
+                </div>
+            </label>
+            <button class="botao-confirmar-transacao">Confirmar Transação</button>
+        </div>
+    </form>
+</main>
